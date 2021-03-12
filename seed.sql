@@ -1,16 +1,14 @@
-/* Seeds for SQL table. We haven't discussed this type of file yet */
-USE boston;
+USE employed_db;
 
-/* Insert 3 Rows into your new table */
-INSERT INTO colleges (name)
-VALUES ("UMass");
 
-INSERT INTO colleges (name)
-VALUES ("Boston College");
+INSERT INTO department (name)
+VALUES ("Accounting");
 
-INSERT INTO colleges (name)
-VALUES ("Harvard");
+INSERT INTO department (name)
+VALUES ("Human Resources");
 
-/* OR */
-INSERT INTO colleges (name)
-VALUES ("Emerson"), ("Northeastern"), ("MIT");
+INSERT INTO department (name)
+VALUES ("Sales");
+
+INSERT INTO department (name)
+VALUES ("Engineering");
