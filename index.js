@@ -1,6 +1,7 @@
 const conTab = require("console.table");
 const inquirer = require('inquirer');
 const mysql = require("mysql");
+const { ConnectionTimedOutError } = require("sequelize/types");
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -67,7 +68,7 @@ const start = () => {
                 break;
 
             case "Add Department":
-                addDerpartment();
+                addDepartment();
                 break;
 
             case "Exit":
@@ -77,6 +78,51 @@ const start = () => {
         }
 
     });
+
+
+    const addRole = () => {
+        inquirer.prompt([
+            {
+                type: "input",
+                message: "What is the title of the job being added?",
+                name: "title"
+            },
+            {
+                type: "input",
+                message: "What is the salary for the new employee?",
+                name: "salary"
+            },
+            {
+                type: "input",
+                message: "What is the department ID for this new role?",
+                name: "roleID"
+            }
+
+        ]).then((response) => {
+            const title = response.title;
+            const salary = response.salary;
+            const roleID = reponse.roleID;
+
+            Connection.query(
+                "INSERT INTO role SET ?",
+                {
+                    title: title,
+                    salary: salary,
+                    roleID: roleID,
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log("Adding a new employee/role");
+                    start();
+                }
+            )
+        }
+        );
+    }
+
+    const addEmployee
+
+    const addDepartment
 
 
     const viewAllEmployees = () => {
