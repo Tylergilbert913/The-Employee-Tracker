@@ -18,7 +18,7 @@ connection.connect(err => {
 
 });
 
-function init() {
+const start = () => {
     inquirer.prompt([
         {
             type: "list",
@@ -37,6 +37,7 @@ function init() {
             ]
         }
     ]).then((response) => {
+        console.log(`This is what you've chosen: ${response.options}`)
         switch (response.choices) {
             case "View all employees":
                 viewAllEmployees();
@@ -71,7 +72,7 @@ function init() {
                 break;
 
             case "Exit":
-                // connection.end();
+                connection.end();
 
 
         }
