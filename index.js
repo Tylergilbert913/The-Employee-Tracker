@@ -120,7 +120,50 @@ const start = () => {
         );
     }
 
-    const addEmployee
+    const addEmployee = () => {
+        inquirer.prompt([
+            {
+                type: "input",
+                message: "What's the employee's first name?",
+                name: "emFirstName"
+            },
+            {
+                type: "input",
+                message: "What's the empolyee's last name?",
+                name: "emLastName"
+            },
+            {
+                type: "input",
+                message: "What's the employee's ID number?",
+                name: "emIDNumber"
+            },
+            {
+                type: "input",
+                message: "What's the employee's Manager's ID?",
+                name: "emManagerID"
+            }
+        ]).then((response) => {
+            const emFirstName = response.emFirstName;
+            const emLastName = response.emLastName;
+            const emIDNumber = reponse.emIDNumber;
+            const emManagerID = reponse.emManagerID;
+
+            Connection.query(
+                "INSERT INTO employee SET ?",
+                {
+                    first_name: emFirstName,
+                    last_name: emLastName,
+                    role_id: emIDNumber,
+                    manager_id: emManagerID,
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log("Adding employee");
+                    start();
+                }
+            );
+        });
+    };
 
     const addDepartment
 
@@ -199,4 +242,3 @@ const start = () => {
 
 
 }
-init();
