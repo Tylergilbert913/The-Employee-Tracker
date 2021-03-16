@@ -20,8 +20,22 @@ connection.connect(err => {
 
 function init() {
     inquirer.prompt([
-
-
+        {
+        type: "list",
+        message: "What would you like to do?",
+        name: "options",
+        choices: [
+            "View all employees",
+            "View all employees by department",
+            "Add employee",
+            "Update employee role",
+            "View all roles",
+            "Add role",
+            "View all departments",
+            "Add department",
+            "Quit",
+        ]
+        }
 
 
 
