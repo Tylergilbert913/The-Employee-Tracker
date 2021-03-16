@@ -165,7 +165,27 @@ const start = () => {
         });
     };
 
-    const addDepartment
+    const addDepartment = () => {
+        inquirer.prompt({
+                type: "input",
+                message: "What department do you want to add?",
+                name: "addDepartment"
+            }).then((response) => {
+                const addDepartment = response.addDepartment;
+                connection.query(
+                    "INSERT INTO department SET ?",
+                    {
+                        name: addDepartment,
+                    },
+                    (err) => {
+                        if (err) throw err;
+                        console.log("added new department");
+                        start();
+                    }
+                );
+            });
+        
+    };
 
 
     const viewAllEmployees = () => {
