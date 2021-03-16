@@ -50,23 +50,38 @@ function init() {
                 addEmployee();
                 break;
 
-                case "Update employee role":
-                    updateEmployee();
-                    break;
+            case "Update employee role":
+                updateEmployee();
+                break;
 
-                    case "View all roles":
-                        viewAllRoles();
-                        break;
+            case "View all roles":
+                viewAllRoles();
+                break;
 
-                        case 
+            case "Add role":
+                addRole();
+                break;
+
+            case "View all departments":
+                viewAllDepartments();
+                break;
+
+            case "Add Department":
+                addDerpartment();
+                break;
+
+            case "Exit":
+                // connection.end();
+
+
         }
 
-    }
+    }).catch(err => { console.error(err) })
 
 
 
 
-    ])
+    
 
 
 
