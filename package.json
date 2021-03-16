@@ -25,5 +25,6 @@
     "mysql": "^2.18.1",
     "sequelize": "^6.5.0",
     "util": "^0.12.3"
-  }
+  },
+  "devDependencies": {}
 }
