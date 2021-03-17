@@ -39,7 +39,7 @@ const start = () => {
 
         }).then((response) => {
         console.log(`This is what you've chosen: ${response.options}`)
-        switch (response.choices) {
+        switch (response.options) {
             case "View all employees":
                 viewAllEmployees();
                 break;
@@ -146,10 +146,10 @@ const start = () => {
         ]).then((response) => {
             const emFirstName = response.emFirstName;
             const emLastName = response.emLastName;
-            const emIDNumber = reponse.emIDNumber;
-            const emManagerID = reponse.emManagerID;
+            const emIDNumber = response.emIDNumber;
+            const emManagerID = response.emManagerID;
 
-            Connection.query(
+            connection.query(
                 "INSERT INTO employee SET ?",
                 {
                     first_name: emFirstName,
@@ -219,15 +219,26 @@ const start = () => {
         });
     };
 
-
-    function updateID() {
-        return ([
-            {
+    const updateEmployee = () => {
+        inquirer.prompt({
                 type: "input",
                 message: "What is the employee's ID?:",
-                name: "updateID"
-            }
-        ]);
+                name: "updateEmployee"
+        }).then((response) => {
+            const updateEmployee = response.updateEmployee;
+            connection.query(
+                `UPDATE employee SET role_id = ?, WHERE role_id = ${response.up}`,
+                {
+                    name: updateEmployee,
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log("Updated role id");
+                    start();
+                }
+            );
+        });
+
     };
 
 
