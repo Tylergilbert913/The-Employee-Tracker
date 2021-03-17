@@ -28,7 +28,7 @@ This application makes keeping up with and adding new emoplyee's easier for the 
     
 ## Installation Instructions
     
-NPM I, NPM I MYSQL, NPM I INQUIRER, NPM I CONSOLE.TABLE
+NPM I, NPM I MYSQL, NPM I INQUIRER, NPM I CONSOLE.TABLE, NPM I --SAVE NODE-BANNER
     
 ## Usage Information 
     
