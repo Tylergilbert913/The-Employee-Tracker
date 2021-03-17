@@ -157,7 +157,7 @@ const start = () => {
                     console.log("Adding employee");
                     start();
                 }
-            );
+            )
         }
         );
     }
@@ -171,12 +171,12 @@ const start = () => {
                 name: "addDepartment"
             }
         ).then((response) => {
-            const addDepart = response.addDepart;
+            const addDepartment = response.addDepartment;
 
             connection.query(
                 "INSERT INTO department SET ?",
                 {
-                    name: addDepart,
+                    name: addDepartment,
                 },
                 (err) => {
                     if (err) throw err;
