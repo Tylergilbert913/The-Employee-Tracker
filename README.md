@@ -12,7 +12,7 @@ This application makes keeping up with and adding new emoplyee's easier for the 
 
 ## Demo of Application
 
-    * https://drive.google.com/file/d/1Vw8sxBDuWshae7WjyzBJ1JCysiKA62xw/view
+     https://drive.google.com/file/d/1Vw8sxBDuWshae7WjyzBJ1JCysiKA62xw/view
     
 ## Table of Contents
     
