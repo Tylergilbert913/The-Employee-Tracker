@@ -171,12 +171,12 @@ const start = () => {
                 name: "addDepartment"
             }
         ).then((response) => {
-            const addDepartment = response.addDepartment;
+            const addDepart = response.addDepart;
 
             connection.query(
                 "INSERT INTO department SET ?",
                 {
-                    name: addDepartment,
+                    name: addDepart,
                 },
                 (err) => {
                     if (err) throw err;
