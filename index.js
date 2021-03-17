@@ -11,6 +11,12 @@ const connection = mysql.createConnection({
     database: 'employee_db'
 });
 
+const showBanner = require('node-banner');
+ 
+(async () => {
+    await showBanner('The Employee Tracker');
+})();
+
 connection.connect(err => {
     if (err) throw err;
     console.log(`We connected! Connected as thread id ${connection.threadId}`);
