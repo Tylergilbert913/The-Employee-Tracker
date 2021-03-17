@@ -69,7 +69,7 @@ const start = () => {
                 break;
 
             case "Add Department":
-                addDepartment();
+                addDepart();
                 break;
 
             case "Exit":
@@ -109,7 +109,7 @@ const start = () => {
                 {
                     title: title,
                     salary: salary,
-                    roleID: roleID,
+                    department_id: roleID,
                 },
                 (err) => {
                     if (err) throw err;
@@ -163,19 +163,21 @@ const start = () => {
                     start();
                 }
             );
-        });
-    };
+        }
+        );
+    }
 
-    const addDepartment = () => {
+    const addDepart = () => {
         console.log("FML");
-        inquirer.prompt([
+        inquirer.prompt(
             {
                 type: "input",
                 message: "What department do you want to add?",
                 name: "addDepartment"
             }
-        ]).then((response) => {
+        ).then((response) => {
             const addDepartment = response.addDepartment;
+
             connection.query(
                 "INSERT INTO department SET ?",
                 {
@@ -187,9 +189,10 @@ const start = () => {
                     start();
                 }
             );
-        });
+        }
+        );
 
-    };
+    }
 
 
     const viewAllEmployees = () => {
