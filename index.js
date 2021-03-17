@@ -32,7 +32,6 @@ const start = () => {
             "Update employee role",
             "View all roles",
             "Add role",
-            "View all departments",
             "Add department",
             "Quit"
         ]
@@ -62,10 +61,6 @@ const start = () => {
 
             case "Add role":
                 addRole();
-                break;
-
-            case "View all departments":
-                viewAllDepartments();
                 break;
 
             case "Add Department":
