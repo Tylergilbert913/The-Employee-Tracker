@@ -22,22 +22,22 @@ connection.connect(err => {
 const start = () => {
     inquirer.prompt({
 
-            type: "list",
-            message: "What would you like to do?",
-            name: "options",
-            choices: [
-                "View all employees",
-                "View all employees by department",
-                "Add employee",
-                "Update employee role",
-                "View all roles",
-                "Add role",
-                "View all departments",
-                "Add department",
-                "Quit"
-            ]
+        type: "list",
+        message: "What would you like to do?",
+        name: "options",
+        choices: [
+            "View all employees",
+            "View all employees by department",
+            "Add employee",
+            "Update employee role",
+            "View all roles",
+            "Add role",
+            "View all departments",
+            "Add department",
+            "Quit"
+        ]
 
-        }).then((response) => {
+    }).then((response) => {
         console.log(`This is what you've chosen: ${response.options}`)
         switch (response.options) {
             case "View all employees":
@@ -102,9 +102,9 @@ const start = () => {
         ]).then((response) => {
             const title = response.title;
             const salary = response.salary;
-            const roleID = reponse.roleID;
+            const roleID = response.roleID;
 
-            Connection.query(
+            connection.query(
                 "INSERT INTO role SET ?",
                 {
                     title: title,
@@ -167,11 +167,14 @@ const start = () => {
     };
 
     const addDepartment = () => {
-        inquirer.prompt({
-            type: "input",
-            message: "What department do you want to add?",
-            name: "addDepartment"
-        }).then((response) => {
+        console.log("FML");
+        inquirer.prompt([
+            {
+                type: "input",
+                message: "What department do you want to add?",
+                name: "addDepartment"
+            }
+        ]).then((response) => {
             const addDepartment = response.addDepartment;
             connection.query(
                 "INSERT INTO department SET ?",
@@ -221,9 +224,9 @@ const start = () => {
 
     const updateEmployee = () => {
         inquirer.prompt({
-                type: "input",
-                message: "What is the employee's ID?:",
-                name: "updateEmployee"
+            type: "input",
+            message: "What is the employee's ID?:",
+            name: "updateEmployee"
         }).then((response) => {
             const updateEmployee = response.updateEmployee;
             connection.query(
