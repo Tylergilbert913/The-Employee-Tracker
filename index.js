@@ -169,7 +169,7 @@ const start = () => {
     }
 
     const addDepart = () => {
-        console.log("FML");
+        console.log("This is working");
         inquirer.prompt(
             {
                 type: "input",
@@ -233,8 +233,9 @@ const start = () => {
             name: "updateEmployee"
         }).then((response) => {
             const updateEmployee = response.updateEmployee;
+
             connection.query(
-                `UPDATE employee SET role_id = ?, WHERE role_id = ${response.up}`,
+                `UPDATE employee SET role_id = ?, WHERE role_id = ${response.updateEmployee}`,
                 {
                     name: updateEmployee,
                 },
